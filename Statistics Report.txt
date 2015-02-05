@@ -1,0 +1,178 @@
+Assignment No. : 2
+Name: Shrutika Dasgupta
+UNI: sd2841
+------------------------------------------------------------------
+Part 2: Statistics Calculations
+________________________________
+
+The following experiments have been conducted:
+
+In total for each experiment 20 matched were played between both the agents. These statisitics 
+calculated is the average value observed among all the 20 games.  
+
+i) To calculate the number of Nodes generated:
+- a counter variable is incremented everytime a new node is generated in the program.
+- This counter varable is : num_node_generated
+
+ii) To calculate the number of Nodes duplicated:
+- Since in the program code I store the hash of a board state everytime a new board is generated.
+- I maintain a incremental variable that updates ewhen the condition for board_state is checked in 
+  the program code, for checking the exixtence of the board in the set of boards.
+
+iii) To calculate the Branching Factor:
+	=> For Minimax :
+		- The branching factor is obtained by dividing the sum of all legal nodes generated for 
+		  all the moves of the game divided by the number of nodes that are truely expanded.
+	=> For Alpha-Beta Prunning: 
+		- The branching factor is calculated in the same way with a slight change the children 
+		  that get prunned are not included in the calculation.
+
+iv) To calculate the run time:
+- The run time of the game is calculated for varied depths of 1, 2 and 3.
+- The value the total time taken in seconds to finish the entire game.
+
+A) Matches played between my agent (sd2841) and random:
+_______________________________________________________
+
+1) When my agent is Black with Minimax:
+----------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 2660.15
+			--> The number of nodes generated was observed to be within the range from 2000 to 2500 
+				when the depth was 2 and between 2500 to 3100 when the depth was 3.
+
+		Number of nodes Duplicated: 4.4
+			--> The number of duplicated nodes where random. Since the random agent played random moves 
+				for each of the 20 games, then duplicated nodoes produced was unpredictable.
+			--> The highest number of duplicates generated from among the games was: 11
+			--> The lowest was observed to be : 0
+			--> For maximum of the games the number of duplicates ranged from : 2 to 8
+
+		Average Branching Factor:  7.33
+		
+		Runtime of the algorithm:
+			1. For Depth 1: 2.4 secs
+			2. For Depth 2: 14.5 secs
+			3. For Depth 3: 67.24 secs
+
+2) When my agent is White with Minimax:
+------------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 2693.35
+			--> The number of nodes generated was between: 1900 to 3300
+			--> The variation observed was quite different as to when my agent played as a Black player.
+
+		Number of nodes Duplicated: 0
+			--> Surprizingly the number of duplicated nodes generated was 0 for all the 20 games played.
+
+		Average Branching Factor: 8.46
+		
+		Runtime of the algorithm:
+			1. For Depth 1: 2.8 secs
+			2. For Depth 2: 7.8 secs
+			3. For Depth 3: 77.45 secs
+
+3) When my agent is Black with Alpha-beta Prunning:
+----------------------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 2026
+			--> The average number of Nodes generated while in prunning is less than that generated 
+				when the tree in not prunned for obvious reasons.
+			--> For the same reasons, the time to get the results and complete the match is also 
+				faster as the results returned from only those nodes 
+				that give potential values and not the one that are not promising.
+
+		Number of nodes Duplicated: 1.5
+			--> The number of nodes duplicated range from 0 to maximum as 7 with th average ranging between 1 and 2.
+		
+		Average Branching Factor: 4.5
+		
+		Runtime of the algorithm:
+			1. For Depth 1: 0.9 secs
+			2. For Depth 2: 5.9 secs
+			3. For Depth 3: 29.87 secs
+
+4) When my agent is white with Alpha-Beta Prunning:
+----------------------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 1663.4
+			--> The Values for this case is the least
+			--> maximum number of nodes generated for a game being, 3058 but the minimum being 875
+
+		Number of nodes Duplicated: 0.05
+			--> Only one game among the 20 generated duplicate nodes of count 1.
+
+		Average Branching Factor: 4.4
+		
+		Runtime of the algorithm:
+			1. For Depth 1: 0.8 secs
+			2. For Depth 2: 4.8 secs
+			3. For Depth 3: 32.76 sec
+
+B) Matches played between my agent (sd2841) and greedy:
+_______________________________________________________
+
+The statistics stay constant through out the multiple matches.
+
+1) When my agent is Black with Minimax:
+----------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 1952
+			
+		Number of nodes Duplicated: 0
+
+		Average Branching Factor: 6
+		
+		Runtime of the algorithm: (in seconds)
+			1. For Depth 1: 2.4
+			2. For Depth 2: 10.2
+			3. For Depth 3: 167.8
+
+2) When my agent is White with Minimax:
+------------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 1350
+
+		Number of nodes Duplicated: 0
+		
+		Average Branching Factor: 5
+		
+		Runtime of the algorithm: (in seconds)
+			1. For Depth 1: 2.3
+			2. For Depth 2: 11.2
+			3. For Depth 3: 104.1
+
+3) When my agent is Black with Alpha-beta Prunning:
+----------------------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 1205
+
+		Number of nodes Duplicated: 0
+
+		Average Branching Factor: 3
+		
+		Runtime of the algorithm: (in seconds)
+			1. For Depth 1: 1.4
+			2. For Depth 2: 6.9
+			3. For Depth 3: 80
+
+4) When my agent is white with Alpha-Beta Prunning:
+----------------------------------------------------
+	RESULTS OBTAINED:
+		Number of Nodes Generated: 833
+
+		Number of nodes Duplicated: 0
+			
+		Average Branching Factor: 2
+		
+		Runtime of the algorithm: (in seconds)
+			1. For Depth 1: 1.2
+			2. For Depth 2: 5.4
+			3. For Depth 3: 78.8
+
+Observations Seen from the results:
+______________________________________
+
+1) Prunning the branches drastically reduces the number of nodes generated and the branching factor.
+2) Also prunning helps reducing the run time of the program to half.
+3) When played against random, each time the statistics were found to be different. But when played against Greedy Player, same moves were made every time.

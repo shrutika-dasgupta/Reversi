@@ -9,7 +9,7 @@ For the purpose of implementing the Minimax Algorithm for the program to fair we
 Othello the follow functions have been implemented and they are run with the following heuristics to improve the chances 
 of my agent to win against the random agent.
 
-**The functions in the file sd2841.py**
+**The functions in the file**
 -------------------------------------------
 1) get_move
 	--> This functions calls the various function in the tree so that it can construct the minimax tree.
